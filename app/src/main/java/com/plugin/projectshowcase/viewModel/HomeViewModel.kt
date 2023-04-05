@@ -3,9 +3,7 @@ package com.plugin.projectshowcase.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.plugin.projectshowcase.data.api.model.Photos
-import com.plugin.projectshowcase.data.api.model.Showcase
-import com.plugin.projectshowcase.data.repository.PhotosRepo
-import com.plugin.projectshowcase.data.repository.ShowcaseRepository
+import com.plugin.projectshowcase.data.repository.PhotoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val photosRepo: PhotosRepo
+    private val photoRepository: PhotoRepository
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(emptyList<Photos>())
@@ -23,8 +21,8 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val showcases  = photosRepo.getAllPhotos()
-            _state.value = showcases
+            val listPhotos = photoRepository.getAllPhotos()
+            _state.value = listPhotos
         }
     }
 }

@@ -7,4 +7,3 @@ data class Photos(
     val url : String,
     val thumbnailUrl : String
 )
-

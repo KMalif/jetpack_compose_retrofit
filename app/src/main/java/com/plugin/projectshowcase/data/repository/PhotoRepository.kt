@@ -1,13 +1,13 @@
 package com.plugin.projectshowcase.data.repository
 
-import com.plugin.projectshowcase.data.api.ShowcaseAPI
+import com.plugin.projectshowcase.data.api.ApiClient
 import com.plugin.projectshowcase.data.api.model.Photos
 import javax.inject.Inject
 
-class PhotosRepo @Inject constructor(
-    private val showcaseAPI: ShowcaseAPI
+class PhotoRepository @Inject constructor(
+    private val apiClient: ApiClient
 ) {
     suspend fun getAllPhotos() : List<Photos>{
-        return showcaseAPI.getAllPhotos()
+        return apiClient.getAllPhotos()
     }
 }

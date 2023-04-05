@@ -1,7 +1,7 @@
 package com.plugin.projectshowcase.di
 
-import com.plugin.projectshowcase.data.api.ShowcaseAPI
-import com.plugin.projectshowcase.data.util.Constant.Companion.BASE_URL
+import com.plugin.projectshowcase.data.api.ApiClient
+import com.plugin.projectshowcase.data.utils.Constant.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,14 +12,14 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ShowcaseApiModule {
+class APIModule {
 
     @Provides
     @Singleton
-    fun provideApi (builder : Retrofit.Builder) : ShowcaseAPI {
+    fun provideApi (builder : Retrofit.Builder) : ApiClient{
         return builder
             .build()
-            .create(ShowcaseAPI::class.java)
+            .create(ApiClient::class.java)
     }
 
     @Provides
@@ -29,4 +29,6 @@ object ShowcaseApiModule {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
     }
+
+
 }

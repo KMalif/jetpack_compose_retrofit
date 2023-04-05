@@ -1,12 +1,12 @@
 package com.plugin.projectshowcase.data.api
 
 import com.plugin.projectshowcase.data.api.model.Photos
-import com.plugin.projectshowcase.data.api.model.Showcase
 import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.PUT
 
-interface ShowcaseAPI {
-    @GET("api/showcases")
-    suspend fun getAllShowcase() : List<Showcase>
+
+interface ApiClient {
 
     @GET("/photos")
     suspend fun getAllPhotos() : List<Photos>
