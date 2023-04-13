@@ -3,9 +3,7 @@ package com.plugin.projectshowcase.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.plugin.projectshowcase.data.api.model.Photos
-import com.plugin.projectshowcase.data.api.model.Showcase
 import com.plugin.projectshowcase.data.repository.PhotosRepo
-import com.plugin.projectshowcase.data.repository.ShowcaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
